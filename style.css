@@ -1,0 +1,57 @@
+#login{
+	
+	background-color: #99D1D3;
+	width: 300px;
+	height: 200px;
+	margin-top:100px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border: 1px solid #99D1D3;
+}
+.space{
+	word-spacing: 25px;
+}
+hr{
+	width: 250px;
+}
+
+body{
+	background-image: url("bg1.jpg");
+}
+ul{
+    list-style: none;
+}
+#top{
+
+	height: 50px;
+    background: #000000;
+    text-align: center;
+    line-height: 50px; 
+    color: #fff;
+}
+#menu table{
+	width: 100%;
+}
+#menu th{
+    border-right: 1px solid #fff;
+    text-align: center;
+    background: gray;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+#menu a{
+    color: #fff;
+    font-weight: bold
+}
+#job th{
+ 	width: 15%;
+    border-right: 1px solid #fff;
+    text-align: center;
+    background: gray;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+#job table{
+	width: 100%;
+}
