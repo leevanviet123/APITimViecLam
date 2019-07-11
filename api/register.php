@@ -1,5 +1,5 @@
 <?php
-require_once './conect.php';
+require_once './connection.php';
 if($isOK && empty($_REQUES('username'))){
 	$newuser = $_REQUES['username'];
 	$newpass = $_REQUES['password'];
@@ -10,7 +10,7 @@ if($isOK && empty($_REQUES('username'))){
 	$result = mysqli_query($connect, $sql);
 }
  $rows = array();
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)){
         $rows[] = $row;
     }
     echo json_encode($rows);

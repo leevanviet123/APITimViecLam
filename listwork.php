@@ -12,7 +12,7 @@ require './header.php';
 			
 		</tr>
 		<?php
-            require_once './connect.php';
+           require_once './connection.php';
                $stt=1;
                 $rows = array();
                $result=mysqli_query($connect,"SELECT `id_list`, `name_work` FROM `listwork` ");

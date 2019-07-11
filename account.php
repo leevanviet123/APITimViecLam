@@ -13,7 +13,7 @@ require 'header.php';
       		<th>Xóa</th>
 		</tr>
 		<?php
-            require_once './connect.php';
+            require_once './connection.php';
                $stt=1;
                $rows = array();
              $result=mysqli_query($connect,"SELECT `id_account`, `username`, `password`, `name_displayed`, `email_restore` FROM `account`");

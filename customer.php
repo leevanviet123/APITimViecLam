@@ -16,7 +16,7 @@ require './header.php';
      	 <th>Xóa</th>
 		</tr>
 			<?php
-            require_once './connect.php';
+            require_once './connection.php';
                $stt=1;
                 $rows = array();
                  $result=mysqli_query($connect,"SELECT `id_custom`, `username`, `avatar`,`name`, `address`, `email_contact`, `phone` FROM `customer` INNER JOIN `account` ON `id_acount` = `id_account`");
