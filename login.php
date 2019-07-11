@@ -32,7 +32,7 @@ if ($name_qt && $password) {
     </head>
     <body>    
 
-        <form id="formlogin" action="login.php" method="post">
+        <form id="formlogin" action="index.php" method="post">
         	<div id="login">
                   Đăng nhập
                   <br>
@@ -43,22 +43,12 @@ if ($name_qt && $password) {
                     Mật khẩu: <input placeholder="Password" type="password" name="txtpassword" required="">
                     <br>
                     <br>
-                    <div class="space">
-                    <input type="submit" value="Login">
-                    <input type="button" value="Register" id="btnregister">
+                    <div>
+                    <input type="submit" value="Login" >
                     </div>
                     <hr>
                     <input type="checkbox" name="cbremember">Nhớ mật khẩu | <a href="">Quên mật khẩu?</a>
-              <script language="javascript">
-           
-            var button = document.getElementById("btnregister");
-             
-     
-            button.onclick = function()
-            {
-             window.location="register.php";
-            };
-        </script>
+              
             </div>
         </form>
     </body>

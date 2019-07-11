@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title></title>
-<link rel="stylesheet" type="text/css" href="style.css">	
+<link rel="stylesheet" type="text/css" href="styleAPI.css">
 <meta charset="utf-8">
 </head>
 <body>
@@ -10,9 +10,9 @@
         <table>
            	<tr>
 		       <th><a href="index.php">Việc làm</a></th>
-		       <th><a href="danhmuc.php">khách hàng</a></th>
-		       <th><a href="khachhang.php">Nhân viên</a></th>
-		       <th><a href="hoadon.php">Tài khoản </a></th> 
+		       <th><a href="customer.php">Khách hàng</a></th>
+		       <th><a href="listwork.php">Danh mục</a></th>
+		       <th><a href="account.php">Tài khoản </a></th> 
 		   </tr>
 		</table>
 	</div>
