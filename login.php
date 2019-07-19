@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require_once './connect.php';
+require_once './connection.php';
 $name_qt = $password = null;
 if(isset($_POST['txtname'])){
     
