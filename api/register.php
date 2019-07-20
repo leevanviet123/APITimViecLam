@@ -1,15 +1,15 @@
 <?php
 require_once './connection.php';
 if($isOK){
-	$newuser = $_REQUEST['txtname'];
-	$newpass = $_REQUEST['txtpassword'];
-	$newname = $_REQUEST['fname'];
+	$newuser = $_REQUEST['username'];
+	$newpass = $_REQUEST['password'];
+	$newname = $_REQUEST['name_display'];
 	$newemail = $_REQUEST['email'];
 
-	$sql = "INSERT INTO `account` (`id_account`, `username`, `password`, `name_displayed`, `email_restore`) VALUES (NULL, '{$newuser}', '{$newpass}', N'{$newname}', '{$newemail}')";
+	$sql = "INSERT INTO `account` (`username`, `password`, `name_displayed`, `email_restore`) VALUES ('{$newuser}', '{$newpass}', N'{$newname}', '{$newemail}')";
 	$result = mysqli_query($connect, $sql);
 	if($result){
-		echo json_decode($mess_suscess);
+		echo json_encode($mess_susccess);
 	}
 	else
 	{
