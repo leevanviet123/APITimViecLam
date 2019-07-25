@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2019 at 02:45 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: Jul 25, 2019 at 10:58 AM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `timviecdb`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getaccount` ()  BEGIN
+   SELECT * from account;
+END$$
+
+--
+-- Functions
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `change_password` (`username` VARCHAR(32), `oldpassword` VARCHAR(64), `newpassword` VARCHAR(64)) RETURNS INT(11) BEGIN
+	declare a int(11);
+	select count(*) into a from account where account.username=username and account.password = oldpassword;
+    if (a=0) then signal sqlstate '45000' set message_text='password khong dung';
+    end if;
+    if(a=1) then update account set account.password=newpassword where account.username=username;
+    end if;
+return 1;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -41,11 +64,8 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id_account`, `username`, `password`, `name_displayed`, `email_restore`) VALUES
-(1, 'viet', 'e10adc3949ba59abbe56e057f20f883e', 'cc', 'cc@gmail.com'),
-(2, 'nam', '00c66aaf5f2c3f49946f15c1ad2ea0d3', 'Lê Văn Việt', 'leevanviet1928@gmail.com'),
 (11, 'admin', '123456', 'Le văn việt', 'admin'),
-(12, 'chien', '733d7be2196ff70efaf6913fc8bdcabf', 'LE VAN CHIEN', 'levanchien123654@gmail.com'),
-(13, 'than', '733d7be2196ff70efaf6913fc8bdcabf', 'LE VAN VIET', 'lsafa@gmail.com');
+(28, 'giang2', '202cb962ac59075b964b07152d234b70', 'GIANG GIANG', 'xxx');
 
 -- --------------------------------------------------------
 
@@ -88,7 +108,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id_custom`, `id_acount`, `avatar`, `name`, `address`, `email_contact`, `phone`) VALUES
-(1, 1, 'le van viet', 'CTTNHH 123', 'số 10 Tây Tựu,Từ Liêm,Hà Nội', 'leevanviet1928@gmail.com', 123456789);
+(7, 28, 'default.jpg', '', '', '', -1),
+(9, 11, 'default.jpg', '', '', '', -1);
 
 -- --------------------------------------------------------
 
@@ -146,7 +167,8 @@ INSERT INTO `listwork` (`id_list`, `name_work`) VALUES
 -- Indexes for table `account`
 --
 ALTER TABLE `account`
-  ADD PRIMARY KEY (`id_account`);
+  ADD PRIMARY KEY (`id_account`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `admin`
@@ -183,7 +205,7 @@ ALTER TABLE `listwork`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id_account` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_account` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -195,7 +217,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_custom` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_custom` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `job`
@@ -217,7 +239,6 @@ ALTER TABLE `listwork`
 -- Constraints for table `customer`
 --
 ALTER TABLE `customer`
-  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`id_custom`) REFERENCES `job` (`id_customer`),
   ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`id_acount`) REFERENCES `account` (`id_account`);
 
 --
