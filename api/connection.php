@@ -6,7 +6,7 @@ $mess_empty = array("id"=>102, "message"=>"Không có dữ liệu");
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "timviecdb";
+$database = "timviecdb2";
 //kết nối tới csdl
 $connect = mysqli_connect($host,$user,$password,$database);
 mysqli_set_charset($connect,"utf8");
