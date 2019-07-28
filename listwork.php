@@ -15,15 +15,15 @@ require './header.php';
            require_once './connection.php';
                $stt=1;
                 $rows = array();
-               $result=mysqli_query($connect,"SELECT `id_list`, `name_work` FROM `listwork` ");
+               $result=mysqli_query($connect,"SELECT `id`, `name_work` FROM `category` ");
                while ($data = mysqli_fetch_assoc($result))
                         
                { $rows[] = $data;
                    echo"<tr>";
                     echo"<td >$stt</td>";
                     echo"<td >$data[name_work]</td>";
-                    echo " <td><a style='color: #ffcc00' href='edit_sanpham.php?id=$data[id_list]'>Sửa</a></td>";
-                    echo"<td><a style='color: red' href='delete_sanpham.php?id=$data[id_list] '>Xóa</a></td>";
+                    echo " <td><a style='color: #ffcc00' href='edit_sanpham.php?id=$data[id]'>Sửa</a></td>";
+                    echo"<td><a style='color: red' href='delete_sanpham.php?id=$data[id] '>Xóa</a></td>";
                 echo"</tr>";
                 $stt++;
                }

@@ -19,9 +19,8 @@
             require_once './connection.php';
                $stt=1;
                 $rows = array();
-    $result = mysqli_query($connect,"SELECT `id_job`, `name_work`,`Name`, `Request`, `salary`, `describe`,`number`, `contact` FROM `job` INNER JOIN `listwork` ON `id_work` = `id_list` ");
-               while ($data = mysqli_fetch_assoc($result))
-                        
+    $result = mysqli_query($connect,"SELECT `id_job`, `name_work`,`Name`, `Request`, `salary`, `describe`,`number`, `contact` FROM `job`INNER JOIN `category` ON `id` = `id_category` ");
+               while ($data = mysqli_fetch_assoc($result))              
                { $rows[] = $data;
                    echo"<tr>";
                     echo"<td >$stt</td>";
