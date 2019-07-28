@@ -17,7 +17,6 @@ if (mysqli_connect_error()) {
 	echo "lỗi kết nối: ".mysqli_connect_error();
 }else
 {
-	
 	$isOK = true;
 }
 
