@@ -2,8 +2,8 @@
 
 require_once './connection.php';
 if ($isOK) {
-	
-    $sql = "SELECT job.id_job, job.id_category, customer.avatar, customer.name_displayed, job.Name, job.location, job.salary, job.date_post FROM job INNER JOIN customer on customer.id_custom = job.id_customer";    
+	$param1 = $_REQUEST['id_category'];
+    $sql = "SELECT job.id_job, job.id_category, customer.avatar, customer.name_displayed, job.Name, job.location, job.salary, job.date_post FROM job INNER JOIN customer on customer.id_custom = job.id_customer where job.id_category = {$param1}";    
     $result = mysqli_query($connect, $sql);
 
     // Đọc về dữ liệu    
