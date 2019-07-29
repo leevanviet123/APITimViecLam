@@ -19,7 +19,7 @@ require './header.php';
             require_once './connection.php';
                $stt=1;
                 $rows = array();
-                 $result=mysqli_query($connect,"SELECT `id_custom`, `username`, `avatar`,`name`, `address`, `email_contact`, `phone` FROM `customer` INNER JOIN `account` ON `id_acount` = `id_account`");
+                 $result=mysqli_query($connect,"SELECT `id_custom`, `username`, `avatar`,`name_displayed`, `address`, `email_contact`, `phone` FROM `customer` INNER JOIN `account` ON `id_acount` = `id_account`");
                while ($data = mysqli_fetch_assoc($result))
                         
                { $rows[] = $data;
@@ -27,7 +27,7 @@ require './header.php';
                     echo"<td >$stt</td>";
                     echo"<td >$data[username]</td>";
                     echo"<td >$data[avatar]</td>";
-                    echo"<td >$data[name]</td>";
+                    echo"<td >$data[name_displayed]</td>";
                     echo"<td >$data[address]</td>";
                     echo"<td >$data[email_contact]</td>";
                     echo"<td >$data[phone]</td>";
